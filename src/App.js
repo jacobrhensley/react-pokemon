@@ -10,6 +10,8 @@ function App() {
 
   useEffect(() => {
     axios.get(currentPageURL).then(res => {
+      setNextPageURL(res.data.next)
+      setPrevPageURL(res.data.previous)
       setPokemon(res.data.results.map(p => p.name));
     })
   }, [])
