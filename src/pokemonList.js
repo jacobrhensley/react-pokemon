@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function pokemonList({ pokemon }) {
+export default function pokemonList({ name}) {
     return (
         <div>
-            {pokemon.map(p => (
+            {name.map(p => (
                 <div key={p}>{p}</div>
             ))}
         </div>
