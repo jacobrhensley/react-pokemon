@@ -7,7 +7,7 @@ export default function pokemonList({ pokemon }) {
                     {pokemon.results.map(p => (
                         <div className="col-3" key={p.name}>
                             {p.name}
-                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.url.slice(35, p.url.lastIndexOf('/'))}.png`} alt={p}></img>
+                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.url.slice(34, p.url.lastIndexOf('/'))}.png`} alt={p}></img>
                         </div>
                     ))}
                 </div>
