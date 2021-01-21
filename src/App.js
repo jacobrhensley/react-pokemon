@@ -4,9 +4,8 @@ import axios from 'axios'
 import Pagination from './Pagination';
 
 function App() {
-  const [name, setName] = useState([])
-  const [img, setImg] = useState([])
-  const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon?limit=20&offset=20")
+  const [pokemon, setPokemon] = useState([])
+  const [currentPageUrl, setCurrentPageUrl] = useState("https://pokeapi.co/api/v2/pokemon")
   const [nextPageUrl, setNextPageUrl] = useState()
   const [prevPageUrl, setPrevPageUrl] = useState()
   const [loading, setLoading] = useState(true)
@@ -20,9 +19,8 @@ function App() {
       setLoading(false)
       setNextPageUrl(res.data.next)
       setPrevPageUrl(res.data.previous)
-      setName(res.data.results.map(p => p.name))
-      setImg(`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${name}.png`)
-      console.log(res.data)
+      setPokemon(res.data)
+      console.log(pokemon)
     })
 
     return () => cancel()
@@ -41,8 +39,7 @@ function App() {
   return (
     <>
       <PokemonList 
-      name={name} 
-      img={img} 
+      pokemon={pokemon} 
       />
       <Pagination
         gotoNextPage={nextPageUrl ? gotoNextPage : null}
